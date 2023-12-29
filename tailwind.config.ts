@@ -9,7 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'marvel-red': '#F43735'
+        'marvel-red': '#F43735',
+        'marvel-custom-black': '#202020'
       }
     }
   },
