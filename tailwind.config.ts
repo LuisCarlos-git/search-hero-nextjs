@@ -11,6 +11,9 @@ const config: Config = {
       colors: {
         'marvel-red': '#F43735',
         'marvel-custom-black': '#202020'
+      },
+      boxShadow: {
+        card: 'box-shadow: 0px 4px 4px 0px #00000040;'
       }
     }
   },
