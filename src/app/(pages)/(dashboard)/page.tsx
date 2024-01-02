@@ -1,4 +1,4 @@
-import { SearchForm } from '@/components';
+import { Card, Grid, SearchForm } from '@/components';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Dashboard() {
   return (
-    <main>
+    <main className="pb-8">
       <section
         className="h-72"
         style={{
@@ -21,6 +21,22 @@ export default function Dashboard() {
           </h1>
           <SearchForm />
         </div>
+      </section>
+      <section className="max-w-[1366px] mx-auto mt-7">
+        <h2 className="text-4xl text-black font-bold mb-3">#Results</h2>
+        <Grid>
+          <Card.Minimal />
+          <Card.Minimal />
+          <Card.Minimal />
+          <Card.Minimal />
+          <Card.Minimal />
+          <Card.Minimal />
+          <Card.Minimal />
+          <Card.Minimal />
+          <Card.Minimal />
+          <Card.Minimal />
+          <Card.Minimal />
+        </Grid>
       </section>
     </main>
   );
