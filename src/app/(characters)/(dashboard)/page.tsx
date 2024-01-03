@@ -1,5 +1,7 @@
-import { Card, Grid, SearchForm } from '@/components';
 import { Metadata } from 'next';
+
+import { Card, Grid } from '@/components';
+import { SearchForm } from './SearchForm';
 
 export const metadata: Metadata = {
   title: 'Strike team - dashboard',

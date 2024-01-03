@@ -1,5 +1,7 @@
 'use server';
 
+import { axiosInstance } from '@/http';
+
 type Status = 'success' | 'error';
 
 type FormState = {
@@ -11,16 +13,17 @@ export async function submitForm(
   formState: FormState,
   formData: FormData
 ): Promise<FormState> {
-  const character = formData.get('character');
+  const character = formData.get('character') as string;
   try {
-    if (character !== 'miranha') throw new Error('term not match');
-    return new Promise(r =>
-      setTimeout(() => {
-        r({
-          status: 'success'
-        });
-      }, 2000)
-    );
+    const response = await axiosInstance.get('/characters', {
+      params: {
+        nameStartsWith: character
+      }
+    });
+    console.log(response.data.data);
+    return {
+      status: 'success'
+    };
   } catch (e) {
     return {
       status: 'error',
