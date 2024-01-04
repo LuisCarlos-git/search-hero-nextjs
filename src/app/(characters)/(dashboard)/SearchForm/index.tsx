@@ -1,11 +1,19 @@
 'use client';
 
 import { useFormState } from 'react-dom';
+
 import { submitForm } from './action';
 import { SubmitButton } from './SubmitButton';
+import { useEffect } from 'react';
 
 export function SearchForm() {
-  const [, formAction] = useFormState(submitForm, null);
+  const [formState, formAction] = useFormState(submitForm, null);
+
+  useEffect(() => {
+    if (formState?.status === 'error') {
+      console.log(formState.error);
+    }
+  }, [formState]);
 
   return (
     <form
