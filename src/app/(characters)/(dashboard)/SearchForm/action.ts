@@ -1,6 +1,8 @@
 'use server';
 
+import { revalidatePath } from 'next/cache';
 import { characterService } from '@/http/characters';
+import { GetCharacterException } from '@/errors/services/GetCharaterException';
 
 type Status = 'success' | 'error';
 
@@ -20,11 +22,13 @@ export async function submitForm(
       throw new Error('Hero not found');
     }
     console.log(response.results);
+    revalidatePath('/');
+
     return {
       status: 'success'
     };
   } catch (e) {
-    if (e instanceof Error) {
+    if (e instanceof GetCharacterException) {
       return {
         status: 'error',
         error: e.message
